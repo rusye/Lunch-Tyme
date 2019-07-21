@@ -1,4 +1,4 @@
-import { FETCH_RESTAURANTS } from "./types";
+import { FETCH_RESTAURANTS, FETCH_ERROR } from "./types";
 import { normalizeResponseErrors } from "../functions/normalizeResponse";
 
 export const fetchRestaurants = () => dispatch => {
@@ -13,12 +13,11 @@ export const fetchRestaurants = () => dispatch => {
       return res.json();
     })
     .then(businesses => {
-      console.log("i ran a fetch request");
       dispatch({
         type: FETCH_RESTAURANTS,
-        payload: businesses
+        payload: businesses.restaurants,
+        fetching: false
       });
-      // setFetchingData(false);
     })
     .catch(err => {
       console.log(err);
@@ -30,6 +29,9 @@ export const fetchRestaurants = () => dispatch => {
       } else {
         message = "Something went wrong, please try again later";
       }
-      // setServerMessage(message);
+      dispatch({
+        type: FETCH_ERROR,
+        error: message
+      });
     });
 };

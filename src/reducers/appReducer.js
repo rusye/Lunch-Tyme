@@ -1,7 +1,9 @@
-import { FETCH_RESTAURANTS } from "../actions/types";
+import { FETCH_RESTAURANTS, FETCH_ERROR } from "../actions/types";
 
 const initialState = {
-  restaurants: []
+  restaurants: [],
+  fetchingData: true,
+  serverMessage: null
 };
 
 export default function(state = initialState, action) {
@@ -9,7 +11,15 @@ export default function(state = initialState, action) {
     case FETCH_RESTAURANTS:
       return {
         ...state,
-        restaurants: action.payload
+        restaurants: action.payload,
+        fetchingData: action.fetching
+      };
+
+    case FETCH_ERROR:
+      return {
+        ...state,
+        fetchingData: false,
+        serverMessage: action.error
       };
     default:
       return state;
