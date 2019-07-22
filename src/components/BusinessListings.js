@@ -30,8 +30,8 @@ const BusinessListings = props => {
               }}
             >
               <div className="text">
-                <h2>{restaurant.name}</h2>
-                <p>{restaurant.category}</p>
+                <h2 className="companyName">{restaurant.name}</h2>
+                <p className="font12">{restaurant.category}</p>
               </div>
 
               <div className="gradient" />
