@@ -1,71 +1,49 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React from "react";
 import "./BusinessDetails.css";
-// import { GOOGLE_API_KEY } from "./config";
+import GoogleMap from "./GoogleMap";
 
-const BusinessDetails = props => {
-  const [business, setBusiness] = useState();
-
-  useEffect(() => {
-    const businessName = decodeURIComponent(
-      props.location.pathname.substr(
-        props.location.pathname.lastIndexOf("/") + 1
-      )
-    );
-
-    const findBusiness = business => {
-      return business.name === businessName;
-    };
-
-    const businessDetsails = props.restaurants.find(findBusiness);
-    setBusiness(businessDetsails);
-  }, [props.location.pathname, props.restaurants]);
+export default function BusinessDetails(props) {
+  let restaurant = props.restaurant;
+  let lat = restaurant.location.lat;
+  let lng = restaurant.location.lng;
 
   return (
-    <div>
-      {business === undefined ? (
-        <h1>Fetching Data</h1>
-      ) : props.serverMessage ? (
-        <h1>{props.serverMessage}</h1>
-      ) : (
-        <div>
+    <>
+      {props.view === restaurant.name ? (
+        <div className="restaurantDetails">
+          <div className="map">
+            {props.view === restaurant.name ? (
+              <GoogleMap lat={lat} lng={lng} />
+            ) : null}
+          </div>
           <div className="nameCategory">
-            <h2>{business.name}</h2>
-            <p>{business.category}</p>
+            <h2 className="companyName">{restaurant.name}</h2>
+            <p className="font12">{restaurant.category}</p>
           </div>
 
-          <div className="address">
-            <p>
-              {business.location.address}
-              <br />
-              {business.location.city}, {business.location.state}{" "}
-              {business.location.postalCode}
-            </p>
-          </div>
-
-          {business.contact ? (
-            <div className="contactInfo">
-              {business.contact.formattedPhone ? (
-                <p>{business.contact.formattedPhone}</p>
-              ) : null}
-              {business.contact.twitter ? (
-                <p>@{business.contact.twitter}</p>
-              ) : null}
+          <div className="locationContact">
+            <div className="address">
+              <p>
+                {restaurant.location.address}
+                <br />
+                {restaurant.location.city}, {restaurant.location.state}{" "}
+                {restaurant.location.postalCode}
+              </p>
             </div>
-          ) : null}
+
+            {restaurant.contact ? (
+              <div className="contactInfo">
+                {restaurant.contact.formattedPhone ? (
+                  <p>{restaurant.contact.formattedPhone}</p>
+                ) : null}
+                {restaurant.contact.twitter ? (
+                  <p>@{restaurant.contact.twitter}</p>
+                ) : null}
+              </div>
+            ) : null}
+          </div>
         </div>
-      )}
-    </div>
+      ) : null}
+    </>
   );
-};
-
-const mapStateToProps = state => ({
-  restaurants: state.app.restaurants,
-  fetchingData: state.app.fetchingData,
-  serverMessage: state.app.serverMessage
-});
-
-export default connect(
-  mapStateToProps,
-  {}
-)(BusinessDetails);
+}
