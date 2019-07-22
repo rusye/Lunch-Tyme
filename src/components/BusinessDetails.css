@@ -1,0 +1,34 @@
+.businessDetails {
+  max-width: 368px;
+}
+
+.nameCategory {
+  height: 60px;
+  color: white;
+  background-color: #34b379;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.nameCategory {
+  padding-left: 12px;
+}
+
+.locationContact {
+  margin: 16px 12px;
+}
+
+.locationContact * {
+  margin-bottom: 26px;
+}
+
+.locationContact:last-child {
+  margin-bottom: 16px;
+}
+
+.map {
+  height: 180px;
+  max-width: 368px;
+}
