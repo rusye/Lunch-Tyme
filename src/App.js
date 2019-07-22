@@ -5,7 +5,6 @@ import { fetchRestaurants } from "./actions/fetchActions";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import BusinessListings from "./components/BusinessListings";
-import BusinessDetails from "./components/BusinessDetails";
 
 import "./App.css";
 
@@ -26,7 +25,6 @@ function App(props) {
 
           <Switch>
             <Route exact path="/" component={BusinessListings} />
-            <Route exact path="/:businessName" component={BusinessDetails} />
           </Switch>
         </div>
       </Router>
