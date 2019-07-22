@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import "./BusinessListings.css";
+import BusinessDetails from "./BusinessDetails";
 
 const BusinessListings = props => {
+  const [view, setView] = useState(false);
+
   const viewBusiness = e => {
     e.preventDefault();
-    let business = encodeURIComponent(e.target.id);
-    props.history.push(`/${business}`);
+    view ? setView(false) : setView(e.target.id);
   };
 
   return (
@@ -36,6 +38,8 @@ const BusinessListings = props => {
 
               <div className="gradient" />
             </div>
+
+            <BusinessDetails restaurant={restaurant} view={view} />
           </div>
         ))
       )}
