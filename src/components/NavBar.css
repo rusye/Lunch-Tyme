@@ -1,6 +1,6 @@
 nav {
   background-color: #43e895;
-  height: 80px;
+  height: 60px;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -10,12 +10,11 @@ nav {
 
 nav h1 {
   font-size: 17px;
-  margin: 8.5px 0;
+  margin: 5px 0;
 }
 
 .icon {
-  height: 34px;
-  min-width: 17.7px;
+  height: 22px;
   border: none;
 }
 

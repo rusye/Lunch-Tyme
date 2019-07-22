@@ -9,20 +9,22 @@ export default function NavBar(props) {
   const location = props.location.pathname;
 
   return (
-    <nav>
-      {location !== home ? (
+    <header>
+      <nav>
+        {location !== home ? (
+          <Link tabIndex="-1" to="/">
+            <img className="icon" src={backIcon} alt="back" />
+          </Link>
+        ) : (
+          <img className="icon home" src={backIcon} alt="back" />
+        )}
+
+        <h1 className="name">Lunch Tyme</h1>
+
         <Link tabIndex="-1" to="/">
-          <img className="icon" src={backIcon} alt="back" />
+          <img className="icon" src={mapIcon} alt="map" />
         </Link>
-      ) : (
-        <img className="icon home" src={backIcon} alt="back" />
-      )}
-
-      <h1 className="name">Lunch Tyme</h1>
-
-      <Link tabIndex="-1" to="/">
-        <img className="icon" src={mapIcon} alt="map" />
-      </Link>
-    </nav>
+      </nav>
+    </header>
   );
 }
