@@ -1,0 +1,86 @@
+.listingBefore {
+  cursor: pointer;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.listing {
+  z-index: -5;
+  color: white;
+  text-align: left;
+  position: relative;
+}
+
+.gradient {
+  background: url(../icons/cellGradientBackground@2x.png);
+  background-repeat: round;
+}
+
+.gradient,
+.listing {
+  height: 180px;
+}
+
+.text {
+  position: absolute;
+  bottom: 6px;
+  left: 12px;
+}
+
+.businessListings {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.businessListings:last-child {
+  margin-bottom: 50px;
+}
+
+.text p,
+.text h2 {
+  margin: 0;
+}
+
+.listing p {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.listing h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Responsive columns */
+.row::before,
+.row::after {
+  display: table;
+  content: "";
+}
+
+.row::after {
+  clear: both;
+}
+
+.col-6 {
+  float: left;
+}
+
+.col-6 {
+  width: 100%;
+}
+
+@media only screen and (min-width: 640px) {
+  /* 6 columns 6/12 in % */
+  .col-6 {
+    width: 50%;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .businessListings {
+    max-width: 1920px;
+  }
+}
