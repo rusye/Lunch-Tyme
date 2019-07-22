@@ -3,9 +3,10 @@ nav {
   height: 60px;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-end;
   padding: 10px;
+  position: relative;
 }
 
 nav h1 {
@@ -14,10 +15,8 @@ nav h1 {
 }
 
 .icon {
-  height: 22px;
-  border: none;
-}
-
-.home {
-  visibility: hidden;
+  height: 30px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
