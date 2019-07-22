@@ -1,0 +1,24 @@
+nav {
+  background-color: #43e895;
+  height: 80px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 10px;
+}
+
+nav h1 {
+  font-size: 17px;
+  margin: 8.5px 0;
+}
+
+.icon {
+  height: 34px;
+  min-width: 17.7px;
+  border: none;
+}
+
+.home {
+  visibility: hidden;
+}
